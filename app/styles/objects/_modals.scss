@@ -1,0 +1,73 @@
+@if $use-app-modals == true{
+$duraion-fast: 300ms!default;
+$duraion-slow: 600ms!default;
+$background-color-default: #F5F5F5!default;
+/*
+ * create easy modals
+ * Perfectly centered without worries about the size of your modal
+
+  .modal.modal--animate.modal--hide
+    .modal__wrapper
+      .modal__wrapper__element
+        | this is area where you put your content
+  with javasript control when you want modal to show - .modal--hide => .modal--show
+
+ */
+%fullscreen-absolute {
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.modal {
+  @extend %fullscreen-absolute;
+  display: table;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  z-index: 10001;
+  text-align: center;
+}
+.modal__wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  &:before {
+    @extend %fullscreen-absolute;
+    position: fixed;
+    content: '';
+    z-index:-1;
+    background: black;
+    opacity: .25;
+  }
+}
+.modal__wrapper__element {
+  display: inline-block;
+  background-color: $background-color-default;
+  // overwrite this element for your own styling
+}
+
+.modal--animate {
+  .modal__wrapper {
+    @extend %animate;
+    @include vendor(transition-duration, $duration-fast);
+  }
+  .modal__wrapper__element {
+    @extend %animate;
+    @include vendor(transition-duration, $duration-slow);
+    position: relative;
+  }
+}
+
+.modal--hide {
+  z-index: -1;
+  .modal__wrapper          { opacity: 0; }
+  .modal__wrapper__element { left: -100%; }
+}
+.modal--show {
+  .modal__wrapper          { } // inherit from original
+  .modal__wrapper__element { left: 0; }
+}
+}

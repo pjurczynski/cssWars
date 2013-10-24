@@ -1,0 +1,49 @@
+@import 'base/_vars';
+@import 'base/_mixins';
+$background-color-default : #F5F5F5!default;
+$color-primary : #08C!default;
+$color-default : #333!default;
+$brand-round : 3px!default;
+body {
+  background: $background-color-default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font-size: 0.9em;
+  color: $color-default;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  border-bottom-width: 1px;
+  border-bottom-style:  solid;
+  border-bottom-color:  $color-primary;
+  color: $color-primary;
+  &:visited {
+    color: lighten( $color-primary, 20% );
+    border-bottom-color: lighten( $color-primary, 20% );
+  }
+}
+
+.image {
+  &, & a {
+    border-bottom: 0;
+  }
+}
+
+[class*=overlay-text] {
+  background-color: rgba( white, 0.9 );
+  padding: 3%;
+}
+
+.breathe {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.rounded { @include border-radius( $brand-round ); }
+.center { text-align: center; }
+.text { max-width: 90ex; } 
+
+b{ font-weight: bold !important }
+i{ font-style: italic !important }
+u{ text-decoration: underline !important }

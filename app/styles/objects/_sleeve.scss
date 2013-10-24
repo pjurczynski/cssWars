@@ -1,0 +1,25 @@
+.sleeve {
+  overflow: hidden;
+  &:before, &:after {
+    position: absolute;
+    content: '';
+  }
+
+  &:before {
+    top: 15%;
+    bottom: 15%;
+    right: -125px;
+    width: 90px;
+    box-shadow: 0 0 90px 2px black;
+  }
+  &:after {
+    top: 10%;
+    bottom: 10%;
+    left:100%;
+    margin-left:-1px;
+    border-left: 1px solid white;
+    border-radius: 10%;
+    width: 30px;
+    opacity: 0.3;
+  }
+}
