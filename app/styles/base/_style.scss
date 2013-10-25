@@ -1,0 +1,27 @@
+%debug {
+  background: rgba( #ccc, 0.3 );
+}
+%windows {
+  @extend %debug;
+  box-sizing: border-box;
+  min-height: 300px;
+}
+.header {
+  @extend %debug;
+  line-height: $base-spacing-unit * 3;
+}
+.your-css {
+  @extend %windows;
+}
+.your-result {
+  @extend %windows;
+}
+.opponents-result {
+  @extend %windows;
+}
+.reference {
+  @extend %windows;
+}
+.opponents-css {
+  @extend %windows;
+}

@@ -1,12 +1,21 @@
-header
+header.header
   | CSS Wars!
-.your-css
-  | Your Css
-.your-result
-  | Your Result
-.opponents-result
-  | Opponents Result
-.reference
-  | Reference
-.opponents-css
-  | Opponents css
+// spans are used because of jade issues with whitespace and inline-blocks
+.grid
+  span.one-third.grid__item.your-css
+    // Your CSS & Left Column
+    .test Your Css
+
+  span.one-third.grid__item
+    // Center Column
+    .grid
+      span.one-half.grid__item.your-result
+        | Your Result
+      span.one-half.grid__item.opponents-result
+        | Opponents Result
+      span.one-whole.grid__item.reference
+        | Reference
+
+  span.one-third.grid__item.opponents-css
+    // Right Column
+    | Opponents css
