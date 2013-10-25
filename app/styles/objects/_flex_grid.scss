@@ -1,0 +1,22 @@
+@if $use-app-flex-grid == true{
+%flexbox {
+  display: flex;
+}
+.header {
+  flex: 1 1 $base-spacing-unit * 3;
+  line-height: $base-spacing-unit * 3;
+}
+.flex-column--wrapper {
+  @extend %flexbox;
+  flex-direction: column;
+  height: 100%;
+}
+
+.flex-row--wrapper {
+  @extend %flexbox;
+}
+
+.flex-cell {
+  flex: 1 1 100%;
+}
+}

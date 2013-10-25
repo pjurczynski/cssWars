@@ -1,21 +1,30 @@
-header.header
-  | CSS Wars!
-// spans are used because of jade issues with whitespace and inline-blocks
-.grid
-  span.one-third.grid__item.your-css
+#battlefield.flex-column--wrapper
+  // Header
+  header#status.header
+    | CSS Wars!
+
+  .flex-row--wrapper.flex-cell
     // Your CSS & Left Column
-    .test Your Css
+    #tactic-plan.flex-cell
+      Your Css
 
-  span.one-third.grid__item
     // Center Column
-    .grid
-      span.one-half.grid__item.your-result
-        | Your Result
-      span.one-half.grid__item.opponents-result
-        | Opponents Result
-      span.one-whole.grid__item.reference
-        | Reference
+    .flex-cell.fill-whole
+      .flex-column--wrapper.fill-whole__element
+        // Top
+        .flex-row--wrapper.flex-cell
+          // Left
+          #tactic-plan-output.flex-cell
+            | Your Result
 
-  span.one-third.grid__item.opponents-css
+          // Right
+          #enemy-plan-output.flex-cell
+            | Opponents Result
+
+        // Bottom
+        #perfect-plan.flex-cell
+          | Reference
+
     // Right Column
-    | Opponents css
+    #enemy-plan.flex-cell
+      | Opponents css

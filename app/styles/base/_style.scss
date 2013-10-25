@@ -1,27 +1,14 @@
-%debug {
-  background: rgba( #ccc, 0.3 );
+.site-wrapper {
+  height: 100%;
 }
-%windows {
-  @extend %debug;
-  box-sizing: border-box;
-  min-height: 300px;
+
+.fill-whole {
+  position: relative;
 }
-.header {
-  @extend %debug;
-  line-height: $base-spacing-unit * 3;
-}
-.your-css {
-  @extend %windows;
-}
-.your-result {
-  @extend %windows;
-}
-.opponents-result {
-  @extend %windows;
-}
-.reference {
-  @extend %windows;
-}
-.opponents-css {
-  @extend %windows;
-}
+  .fill-whole__element {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  }

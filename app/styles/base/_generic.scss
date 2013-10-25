@@ -4,6 +4,10 @@ $background-color-default : #F5F5F5!default;
 $color-primary : #08C!default;
 $color-default : #333!default;
 $brand-round : 3px!default;
+html, body {
+  height: 100%;
+}
+
 body {
   background: $background-color-default;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

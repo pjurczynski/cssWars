@@ -4,7 +4,7 @@
 
 $use-grids:         true;
 $use-normalize:     true;
-$use-flexbox:       true;
+$use-flexbox:       false;
 $use-columns:       false;
 $use-nav:           false;
 $use-options:       false;
@@ -33,7 +33,7 @@ $push: true;
 $use-app-fonts       : false;
 $use-app-fontawesome : false;
 $use-app-modals      : false;
-$use-app-grid        : false;
+$use-app-flex-grid        : true;
 
 /* Colors */
 $color-default          : #333;
