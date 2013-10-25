@@ -222,7 +222,7 @@ module.exports = function (grunt) {
         options: {
           basePath: '<%= yeoman.app %>/jade/',
           client: false,
-          pretty: true
+          pretty: false
         }
       },
       views: {
