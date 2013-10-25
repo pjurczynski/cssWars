@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('cssWarsApp', [])
+angular.module('cssWarsApp', ['ui.codemirror'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',

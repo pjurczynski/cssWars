@@ -19,7 +19,7 @@ describe 'Controller: MainCtrl', () ->
     }
   )
 
-  it 'should attach a list of awesomeThings to the scope', () ->
+  it 'do nothing', () ->
     # expect(scope.awesomeThings).toBeUndefined()
     # $httpBackend.flush()
     # expect(scope.awesomeThings.length).toBe 3
