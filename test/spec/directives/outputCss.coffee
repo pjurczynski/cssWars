@@ -6,6 +6,7 @@ describe 'Directive: outputCss', () ->
   beforeEach module 'cssWarsApp'
 
   scope = {}
+  validElement = angular.element '<output-css css="yourCss" html="reference"></output-css>'
 
   beforeEach inject ($controller, $rootScope) ->
     scope = $rootScope.$new()
@@ -17,12 +18,12 @@ describe 'Directive: outputCss', () ->
 
   it 'should watch the css attribute', inject ($compile) ->
     spyOn(scope, '$watch')
-    element = angular.element '<output-css css="yourCss"></output-css>'
+    element = validElement
     element = $compile(element) scope
-    expect(scope.$watch.callCount).toEqual(1)
+    expect(scope.$watch).toHaveBeenCalledWith('yourCss', jasmine.any(Function))
 
   it 'should watch the html attribute', inject ($compile) ->
     spyOn(scope, '$watch')
-    element = angular.element '<output-css html="reference"></output-css>'
+    element = angular.element '<output-css css="yourCss" html="reference"></output-css>'
     element = $compile(element) scope
-    expect(scope.$watch.callCount).toEqual(1)
+    expect(scope.$watch).toHaveBeenCalledWith('reference', jasmine.any(Function))

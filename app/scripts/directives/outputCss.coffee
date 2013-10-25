@@ -8,4 +8,6 @@ angular.module('cssWarsApp')
     link: (scope, element, attrs) ->
       scope.$watch attrs.css, ->
         console.log 'watch'
+      scope.$watch attrs.html, ->
+        console.log 'watch'
   )
