@@ -6,5 +6,6 @@ angular.module('cssWarsApp')
     restrict: 'E'
     replace: true
     link: (scope, element, attrs) ->
-      element.text 'this is the outputCss directive'
+      scope.$watch attrs.css, ->
+        console.log 'watch'
   )
