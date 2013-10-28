@@ -45,7 +45,8 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    // browsers: ['Chrome'], 
+    // it mounts the second browser, why?
 
 
     // Continuous Integration mode
