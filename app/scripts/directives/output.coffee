@@ -1,14 +1,17 @@
 'use strict'
 
 angular.module('cssWarsApp')
-  .directive('outputCss', ($compile) ->
+  .directive('output', ($compile) ->
     template: '<iframe></iframe>'
     restrict: 'E'
     replace: true
     link: (scope, element, attrs) ->
       styles = angular.element('<style></style>')
       styles.attr('ng-bind', attrs.css)
-      $compile(element.append(styles))(scope)
-      scope.$watch attrs.html, ->
-        console.log 'watch'
+      html = angular.element('<div></div>')
+      html.attr('ng-bind', attrs.html)
+      element
+        .append(styles)
+        .append(html)
+      $compile(element)(scope)
   )

@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'Directive: outputCss', () ->
+describe 'Directive: output', () ->
 
   # load the directive's module
   beforeEach module 'cssWarsApp'
@@ -8,12 +8,16 @@ describe 'Directive: outputCss', () ->
   scope = {}
   element = {}
   validElement = ''
+  attrs = {}
 
   beforeEach inject ($controller, $rootScope, $compile) ->
-    validElement = angular.element '<output-css css="yourCss" html="reference"></output-css>'
+    attrs.css = 'yourCss'
+    attrs.html = 'reference'
+    validElement = angular.element '<output css="'+attrs.css+'" html="'+attrs.html+'"></output>'
     scope = $rootScope.$new()
 
     scope.yourCss = 'body { background: black }'
+    scope.reference = 'This is text of the body'
     spyOn(scope, '$watch').andCallThrough()
     element = $compile(validElement)(scope)
 
@@ -29,4 +33,9 @@ describe 'Directive: outputCss', () ->
   it 'should bind yourCss to styles', ->
     styles = element.find('style')
     scope.$digest()
-    expect(styles.text()).toBe scope.yourCss
+    expect(styles.text()).toBe scope[attrs.css]
+
+  it 'should bind html reference', ->
+    html = element.find('div')
+    scope.$digest()
+    expect(html.text()).toBe scope[attrs.html]
