@@ -39,3 +39,7 @@ describe 'Directive: output', () ->
     html = element.find('div')
     scope.$digest()
     expect(html.text()).toBe scope[attrs.html]
+
+  it "should throw error if required attributes aren't specified", inject ($compile)->
+    invalidElement = angular.element('<output></output>')
+    expect( -> $compile(invalidElement)(scope)).toThrow()
