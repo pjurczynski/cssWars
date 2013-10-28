@@ -8,9 +8,7 @@ angular.module('cssWarsApp')
     link: (scope, element, attrs) ->
       styles = angular.element('<style></style>')
       styles.attr('ng-bind', attrs.css)
-      $compile(element.append(styles)) scope
-      # scope.$watch attrs.css, ->
-      #   styles[0].innerHTML = newVal
+      $compile(element.append(styles))(scope)
       scope.$watch attrs.html, ->
         console.log 'watch'
   )

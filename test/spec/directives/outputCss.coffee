@@ -15,7 +15,7 @@ describe 'Directive: outputCss', () ->
 
     scope.yourCss = 'body { background: black }'
     spyOn(scope, '$watch').andCallThrough()
-    element = $compile(validElement) scope
+    element = $compile(validElement)(scope)
 
   it 'should make hidden element visible', inject () ->
     expect(element[0].tagName.toLowerCase()).toBe 'iframe'
