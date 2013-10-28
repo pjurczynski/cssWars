@@ -13,7 +13,8 @@ describe 'Directive: outputCss', () ->
     validElement = angular.element '<output-css css="yourCss" html="reference"></output-css>'
     scope = $rootScope.$new()
 
-    spyOn(scope, '$watch')
+    scope.yourCss = 'body { background: black }'
+    spyOn(scope, '$watch').andCallThrough()
     element = $compile(validElement) scope
 
   it 'should make hidden element visible', inject () ->
@@ -24,3 +25,8 @@ describe 'Directive: outputCss', () ->
 
   it 'should watch the html attribute', inject () ->
     expect(scope.$watch).toHaveBeenCalledWith('reference', jasmine.any(Function))
+
+  it 'should bind yourCss to styles', ->
+    styles = element.find('style')
+    scope.$digest()
+    expect(styles.text()).toBe scope.yourCss

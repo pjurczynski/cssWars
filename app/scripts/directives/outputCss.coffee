@@ -6,8 +6,11 @@ angular.module('cssWarsApp')
     restrict: 'E'
     replace: true
     link: (scope, element, attrs) ->
-      scope.$watch attrs.css, ->
-        console.log 'watch'
+      styles = angular.element('<style></style>')
+      styles.attr('ng-bind', attrs.css)
+      $compile(element.append(styles)) scope
+      # scope.$watch attrs.css, ->
+      #   styles[0].innerHTML = newVal
       scope.$watch attrs.html, ->
         console.log 'watch'
   )
