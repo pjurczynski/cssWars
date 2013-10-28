@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('cssWarsApp')
-  .directive('outputCss', () ->
+  .directive('outputCss', ($compile) ->
     template: '<iframe></iframe>'
     restrict: 'E'
     replace: true
