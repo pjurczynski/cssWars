@@ -1,5 +1,6 @@
 'use strict'
 
+# '<output css="styles" html="html"></output>'
 angular.module('cssWarsApp')
   .directive('output', ($compile) ->
     template: '<iframe></iframe>'
