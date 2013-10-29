@@ -15,7 +15,7 @@
         .flex-row--wrapper.flex-cell
           // Left
           #tactic-plan-output.flex-cell
-            | Your Result
+            output( css="yourCss", html="reference" )
 
           // Right
           #enemy-plan-output.flex-cell
@@ -23,7 +23,7 @@
 
         // Bottom
         #perfect-plan.flex-cell
-          | Reference
+          | {{yourCss}}
 
     // Right Column
     #enemy-plan.flex-cell
