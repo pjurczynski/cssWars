@@ -9,12 +9,7 @@ angular.module('cssWarsApp')
     link: (scope, element, attrs) ->
       unless attrs.css? && attrs.html?
         throw new Error('attributes css and html are required')
-      styles = angular.element('<style></style>')
-      styles.attr('ng-bind', attrs.css)
-      html = angular.element('<div></div>')
-      html.attr('ng-bind', attrs.html)
-      element
-        .append(styles)
-        .append(html)
+      element.attr('ng-src',
+        'data:text/html;charset=utf-8,<html><head><style>{{'+attrs.css+'}}</style></head><body>{{'+attrs.html+'}}</body></html>')
       $compile(element)(scope)
   )

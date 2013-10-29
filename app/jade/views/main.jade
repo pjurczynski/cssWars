@@ -15,15 +15,15 @@
         .flex-row--wrapper.flex-cell
           // Left
           #tactic-plan-output.flex-cell
-            output( css="yourCss", html="reference" )
+            output( css="yourCss", html="html" )
 
           // Right
           #enemy-plan-output.flex-cell
-            | Opponents Result
+            output( css="enemyCss", html="html" )
 
         // Bottom
         #perfect-plan.flex-cell
-          | {{yourCss}}
+          output( css="referenceCss", html="html" )
 
     // Right Column
     #enemy-plan.flex-cell

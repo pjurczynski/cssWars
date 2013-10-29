@@ -24,21 +24,18 @@ describe 'Directive: output', () ->
   it 'should make hidden element visible', inject () ->
     expect(element[0].tagName.toLowerCase()).toBe 'iframe'
 
-  it 'should watch the css attribute', inject () ->
-    expect(scope.$watch).toHaveBeenCalledWith('yourCss', jasmine.any(Function))
-
-  it 'should watch the html attribute', inject () ->
-    expect(scope.$watch).toHaveBeenCalledWith('reference', jasmine.any(Function))
-
   it 'should bind yourCss to styles', ->
-    styles = element.find('style')
     scope.$digest()
-    expect(styles.text()).toBe scope[attrs.css]
+    parsed_src = element.attr('src').split(',')[1]
+    generated_element = angular.element( parsed_src )
+    expect(generated_element[0].innerHTML).toBe scope[attrs.css]
 
   it 'should bind html reference', ->
-    html = element.find('div')
     scope.$digest()
-    expect(html.text()).toBe scope[attrs.html]
+    parsed_src = element.attr('src').split(',')[1]
+    generated_element = angular.element( parsed_src )
+    generated_element = angular.element(generated_element[1])
+    expect(generated_element.text()).toBe scope[attrs.html]
 
   it "should throw error if required attributes aren't specified", inject ($compile)->
     invalidElement = angular.element('<output></output>')
