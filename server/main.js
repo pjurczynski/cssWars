@@ -1,8 +1,10 @@
 /*jslint node: true */
 'use strict';
 var express = require('express'),
-    routes = require('./routes'),
-    app = express();
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
+    routes = require('./routes');
 
 app.use(express.bodyParser());
 
@@ -12,4 +14,12 @@ app.use(function (req, res) {
     res.json({'ok': false, 'status': '404'});
 });
 
-module.exports = app;
+io.sockets.on('connection', function(socket) {
+  socket.emit('news', { hello: 'world' } )
+})
+
+module.exports = exports = server
+
+exports.use = function() {
+  app.use.apply(app, arguments);
+}

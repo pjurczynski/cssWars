@@ -16,6 +16,8 @@ module.exports = function(config) {
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-ui-codemirror/ui-codemirror.js',
+      'app/bower_components/angular-ui-codemirror/ui-codemirror.js',
+      'app/vendor/scripts/socket.io.js',
       'app/scripts/*.coffee',
       'app/scripts/**/*.coffee',
       'test/mock/**/*.coffee',
